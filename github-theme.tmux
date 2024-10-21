@@ -2,7 +2,7 @@
 #
 # GitHub Tmux Theme
 #
-# export TMUX_GITHUB_THEME_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export TMUX_GITHUB_THEME_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 get_tmux_option() {
   local option value default
@@ -89,27 +89,8 @@ main() {
   set status-left-length "900"
   set status-right-length "900"
 
-  local azure_subscription
-  azure_subscription="(jq -r '.subscriptions[] | select(.isDefault == true) | .name' ~/.azure/azureProfile.json)"
-  local azure_subscription_short
-  azure_subscription_short="#($azure_subscription | sed -n 's/.*(\(.*\)).*/\1/p')"
-  local kubernetes_context
-  kubernetes_context="#(grep 'current-context' ~/.kube/config | awk '{print \$2}' | xargs)"
-  local azure_panel
-  local kubernetes_panel
-
-  if [ "$azure_subscription_short" != "" ]; then
-    azure_panel=" #[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_blue,bg=$thm_panel] 󰠅 $azure_subscription_short #[fg=$thm_panel,bg=$thm_bg]"
-  fi
-
-  if [ "$kubernetes_context" == "" ]; then
-    kubernetes_panel=""
-  else
-    kubernetes_panel=" #[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_magenta,bg=$thm_panel] ☸ $kubernetes_context #[fg=$thm_panel,bg=$thm_bg]"
-  fi
-
   set status-left ""
-  set status-right "$kubernetes_panel$azure_panel"
+  set status-right "#($TMUX_GITHUB_THEME_DIR/scripts/kubernetes_context.sh \"$thm_bg\" \"$thm_panel\" \"$thm_magenta\")#($TMUX_GITHUB_THEME_DIR/scripts/azure_subscription.sh \"$thm_bg\" \"$thm_panel\" \"$thm_blue\")"
 
   # Panel Layout
   local window_layout="#[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_grey,bg=$thm_panel] #I #W #[fg=$thm_panel,bg=$thm_bg]"
@@ -119,7 +100,6 @@ main() {
   setw window-status-current-format "$window_layout_current"
 
   # Call everything to action
-
   tmux "${tmux_commands[@]}"
 
 }
