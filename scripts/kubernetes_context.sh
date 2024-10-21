@@ -8,7 +8,7 @@ kubernetes_panel() {
   # Check if the context exists
   if [ -n "$context" ]; then
     # Return the decorated context if it exists
-    echo "#[fg=$2,bg=$1]#[fg=$3,bg=$2] ☸ $context #[fg=$2,bg=$1]"
+    echo " #[fg=$2,bg=$1]#[fg=$3,bg=$2] ⎈ $context #[fg=$2,bg=$1]"
   else
     # Return nothing if no context is set
     echo ""

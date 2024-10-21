@@ -8,7 +8,7 @@ azure_subscription() {
   # Check if the subscription exists
   if [ -n "$subscription" ]; then
     # Return the decorated subscription if it exists
-    echo "#[fg=$2,bg=$1]#[fg=$3,bg=$2] 󰠅 $subscription #[fg=$2,bg=$1]"
+    echo " #[fg=$2,bg=$1]#[fg=$3,bg=$2] 󰠅 $subscription #[fg=$2,bg=$1]"
   else
     # Return nothing if no subscription is set
     echo ""
