@@ -95,7 +95,7 @@ main() {
 
   # Panel Layout
   local window_layout="#[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_grey,bg=$thm_panel] #I #W #[fg=$thm_panel,bg=$thm_bg]"
-  local window_layout_current="#[fg=$thm_panel,bg=$thm_bg]#[bg=$thm_panel]#{?client_prefix,#[fg=$thm_blue],#[fg=$thm_fg]} #I #W #[fg=$thm_panel,bg=$thm_bg]"
+  local window_layout_current="#[bg=$thm_bg]#{?client_prefix,#[fg=$thm_blue],#[fg=$thm_grey]}#{?client_prefix,#[bg=$thm_blue],#[bg=$thm_grey]}#{?client_prefix,#[fg=$thm_bg],#[fg=$thm_fg]} #I #W #{?client_prefix,#[fg=$thm_blue],#[fg=$thm_grey]}#[bg=$thm_bg]"
 
   # border colours
   set pane-border-style "fg=black"
