@@ -94,8 +94,7 @@ main() {
   local azure_subscription_short
   azure_subscription_short="#($azure_subscription | sed -n 's/.*(\(.*\)).*/\1/p')"
   local kubernetes_context
-  kubernetes_context="#(grep 'current-context' ~/.kube/config | awk '{print \$2}')"
-
+  kubernetes_context="#(grep 'current-context' ~/.kube/config | awk '{print \$2}' | xargs)"
   local azure_panel
   local kubernetes_panel
 
@@ -114,7 +113,7 @@ main() {
 
   # Panel Layout
   local window_layout="#[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_grey,bg=$thm_panel] #I #W #[fg=$thm_panel,bg=$thm_bg]"
-  local window_layout_current="#[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_panel] #I #W #[fg=$thm_panel,bg=$thm_bg]"
+  local window_layout_current="#[fg=$thm_panel,bg=$thm_bg]#[bg=$thm_panel]#{?client_prefix,#[fg=$thm_blue],#[fg=$thm_fg]} #I #W #[fg=$thm_panel,bg=$thm_bg]"
 
   setw window-status-format "$window_layout"
   setw window-status-current-format "$window_layout_current"
