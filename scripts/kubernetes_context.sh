@@ -3,7 +3,8 @@
 kubernetes_panel() {
   # Fetch the current Kubernetes context
   local context
-  context=$(kubectl config current-context 2>/dev/null)
+  # context=$(kubectl config current-context 2>/dev/null)
+  context=$(sed -n 's/^[[:space:]]*current-context:[[:space:]]*//p' ~/.kube/config | xargs)
 
   # Check if the context exists
   if [ -n "$context" ]; then
