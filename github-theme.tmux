@@ -97,6 +97,10 @@ main() {
   local window_layout="#[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_grey,bg=$thm_panel] #I #W #[fg=$thm_panel,bg=$thm_bg]"
   local window_layout_current="#[fg=$thm_panel,bg=$thm_bg]#[bg=$thm_panel]#{?client_prefix,#[fg=$thm_blue],#[fg=$thm_fg]} #I #W #[fg=$thm_panel,bg=$thm_bg]"
 
+  # border colours
+  set pane-border-style "fg=black"
+  set pane-active-border-style "bg=default fg=black"
+
   setw window-status-format "$window_layout"
   setw window-status-current-format "$window_layout_current"
 
