@@ -49,6 +49,7 @@ main() {
     thm_green="#57ab5a"
     thm_yellow="#c69026"
     thm_blue="#539bf5"
+    thm_blue_bright="#6cb6ff"
     thm_magenta="#b083f0"
     thm_cyan="#39c5cf"
     thm_sky=#909dab
@@ -90,7 +91,7 @@ main() {
   set status-right-length "900"
 
   set status-left ""
-  set status-right "#($TMUX_GITHUB_THEME_DIR/scripts/kubernetes_context.sh \"$thm_bg\" \"$thm_panel\" \"$thm_magenta\")#($TMUX_GITHUB_THEME_DIR/scripts/azure_subscription.sh \"$thm_bg\" \"$thm_panel\" \"$thm_blue\")"
+  set status-right "#($TMUX_GITHUB_THEME_DIR/scripts/kubernetes_context.sh \"$thm_bg\" \"$thm_panel\" \"$thm_blue\")#($TMUX_GITHUB_THEME_DIR/scripts/azure_subscription.sh \"$thm_bg\" \"$thm_panel\" \"$thm_blue_bright\")"
 
   # Panel Layout
   local window_layout="#[fg=$thm_panel,bg=$thm_bg]#[fg=$thm_grey,bg=$thm_panel] #I #W #[fg=$thm_panel,bg=$thm_bg]"
