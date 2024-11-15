@@ -42,47 +42,25 @@ main() {
   # INFO: Not removing the thm_hl_low and thm_hl_med colors for posible features
   # INFO: If some variables appear unused, they are being used either externally
   # or in the plugin's features
-  if [[ $theme == main ]]; then
 
-    thm_grey="#545d68"
-    thm_red="#f47067"
-    thm_green="#57ab5a"
-    thm_yellow="#c69026"
-    thm_blue="#539bf5"
-    thm_blue_bright="#6cb6ff"
-    thm_magenta="#b083f0"
-    thm_cyan="#39c5cf"
-    thm_sky=#909dab
-    thm_bg="#22272e"
-    thm_fg="#adbac7"
-    thm_panel="#2d333a"
-
-    # elif [[ $theme == moon ]]; then
-
-    # thm_base="#232136"
-    # thm_surface="#2a273f"
-    # thm_overlay="#393552"
-    # thm_muted="#6e6a86"
-    # thm_subtle="#908caa"
-    # thm_text="#e0def4"
-    # thm_love="#eb6f92"
-    # thm_gold="#f6c177"
-    # thm_rose="#ea9a97"
-    # thm_pine="#3e8fb0"
-    # thm_foam="#9ccfd8"
-    # thm_iris="#c4a7e7"
-    # thm_hl_low="#2a283e"
-    # thm_hl_med="#44415a"
-    # thm_hl_high="#56526e"
-
-  fi
+  thm_grey="#545d68"
+  thm_red="#f47067"
+  thm_green="#57ab5a"
+  thm_yellow="#c69026"
+  thm_blue="#539bf5"
+  thm_blue_bright="#6cb6ff"
+  thm_magenta="#b083f0"
+  thm_cyan="#39c5cf"
+  thm_sky=#909dab
+  thm_bg="#22272e"
+  thm_fg="#adbac7"
+  thm_panel="#2d333a"
 
   # Aggregating all commands into a single array
   local tmux_commands=()
 
   # Status bar
   set "status" "on"
-  # set status-style "fg=$thm_pine,bg=$thm_base"
   set status-style "fg=$thm_grey,bg=$thm_bg"
   # set monitor-activity "on"
   # Leave justify option to user
